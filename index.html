@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minecraft MOTD-Generator – kostenlos, im Browser</title>
+<meta name="description" content="Gestalte die MOTD deines Minecraft-Servers mit Farben, Fett und Kursiv, sieh die Vorschau und kopiere die fertige Zeile für die server.properties.">
+<link rel="icon" href="data:,">
+<link rel="canonical" href="https://ventrohosting.com/tools/minecraft-motd-generator">
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0B0F17;color:#e9eef7;font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:32px 16px 48px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px}
+.lead{color:#c7d0e0;max-width:760px;margin:0 0 28px}
+a{color:#19d3b6}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.vhp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.vhp-btn--primary{background:#19d3b6;border-color:#19d3b6;color:#06231f}
+.vhp-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#19d3b6}
+footer{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;color:#aab4c8;font-size:15px}
+.vhp-eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 600 12.5px Inter, sans-serif; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(0, 217, 255); }
+.vhp-eyebrow::before { content: ""; width: 22px; height: 2px; background: rgb(0, 217, 255); display: block; }
+.vhp-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 600 16px Inter, sans-serif; padding: 15px 26px; border-radius: 14px; transition: transform 0.2s, filter 0.2s, border-color 0.2s, background 0.2s; }
+.vhp .vhp-btn--primary { background: linear-gradient(135deg, rgb(0, 217, 255), rgb(95, 233, 255)); color: rgb(4, 20, 26); box-shadow: rgba(0, 217, 255, 0.7) 0px 14px 40px -14px; }
+.vhp .vhp-btn--primary:hover { filter: brightness(1.1); transform: translateY(-2px); color: rgb(4, 20, 26); }
+.vhp .vhp-btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; }
+:root { --vx-bg: #0B0F17; --vx-bg-2: #0B0F17; --vx-surface: #121A27; --vx-surface-2: #151F2E; --vx-line: rgba(255, 255, 255, .10); --vx-line-strong: rgba(255, 255, 255, .18); --vx-text: #eaeefb; --vx-muted: #a9b3d0; --vx-faint: #7f8aac; --vx-teal: #00D9FF; --vx-teal-2: #5fe9ff; --vx-violet: #8054FF; --vx-violet-2: #a78bff; --vx-warn: #ffd34d; --vx-grad: linear-gradient(135deg, #00D9FF 0%, #8054FF 100%); --vx-radius: 16px; --vx-radius-sm: 10px; --vx-shadow: 0 18px 50px rgba(0, 0, 0, .45); --vx-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; --vx-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; --vx-header-h: 68px; --bg-body: var(--vx-bg); --bg-card: var(--vx-surface); --bg-card-hover: var(--vx-surface-2); --text-main: var(--vx-text); --text-muted: var(--vx-muted); --primary-color: var(--vx-teal); --primary-hover: var(--vx-teal-2); --secondary-color: var(--vx-violet); --border-color: var(--vx-line); }
+.vht-card { border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; padding: 22px; background: rgba(255, 255, 255, 0.04); }
+.vht-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start; }
+.vht-field { display: grid; gap: 6px; margin-bottom: 16px; }
+.vht-field > label, .vht-field > span.vht-l { font-weight: 700; font-size: 15px; }
+.vht-field small { color: rgb(170, 180, 200); font-size: 13.5px; line-height: 1.45; }
+.vht-field input[type="text"], .vht-field input[type="number"], .vht-field select, .vht-out textarea { width: 100%; box-sizing: border-box; padding: 11px 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(8, 12, 24, 0.7); color: rgb(255, 255, 255); font: inherit; min-height: 44px; }
+.vht-field input[type="range"] { width: 100%; min-height: 44px; }
+.vht-field input:focus-visible, .vht-field select:focus-visible, .vht-out textarea:focus-visible, .vht-btn:focus-visible { outline: rgb(25, 211, 182) solid 2px; outline-offset: 2px; }
+.vht-out textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; line-height: 1.5; min-height: 340px; resize: vertical; }
+.vht-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.vht-note { color: rgb(170, 180, 200); font-size: 14px; line-height: 1.55; }
+.vht-pal { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0px 4px; }
+.vht-pal button { min-width: 44px; min-height: 44px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(8, 12, 24, 0.7); color: rgb(255, 255, 255); cursor: pointer; padding: 0px 10px; }
+.vht-pal button:focus-visible { outline: rgb(25, 211, 182) solid 2px; outline-offset: 2px; }
+.vht-pal .sw { display: inline-block; width: 18px; height: 18px; border-radius: 4px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(255, 255, 255, 0.4); }
+.vht-prev { background: rgb(27, 27, 31); border: 2px solid rgb(58, 58, 66); border-radius: 6px; padding: 14px 16px; font: 16px / 1.35 ui-monospace, Menlo, Consolas, monospace; min-height: 68px; overflow-wrap: anywhere; }
+.vht-prev div { min-height: 22px; }
+.vht-prev .k { opacity: 0.7; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Minecraft MOTD-Generator</h1>
+<p class="lead">Gestalte die Beschreibung deines Servers in der Serverliste: Farben, Fett, Kursiv und zwei Zeilen. Mit Vorschau und fertiger Zeile für die server.properties.</p>
+<div class="vht-grid" data-vh-motd="" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+  <form class="vht-card" onsubmit="return false" aria-label="MOTD gestalten">
+    <div class="vht-field"><label for="m-l1">Zeile 1</label><input id="m-l1" type="text" value="&amp;6&amp;lMein Minecraft-Server" maxlength="120"></div>
+    <div class="vht-field"><label for="m-l2">Zeile 2 (optional)</label><input id="m-l2" type="text" value="&amp;aSurvival &amp;7| &amp;bNeue Welt &amp;7| &amp;fViel Spaß" maxlength="120"></div>
+    <div class="vht-field"><span class="vht-l">Farbe einfügen</span><div class="vht-pal" id="m-colors" role="group" aria-label="Farben"></div></div>
+    <div class="vht-field"><span class="vht-l">Formatierung einfügen</span><div class="vht-pal" id="m-formats" role="group" aria-label="Formatierung"></div><small>Die Codes beginnen hier mit &amp; und werden im Ergebnis zum Paragraphenzeichen. Ein Klick fügt den Code an der Cursorposition des zuletzt gewählten Feldes ein. Hexfarben gibst du als &amp;#RRGGBB ein, Farbverläufe baut der <a href="https://ventrohosting.com/tools/minecraft-farbcodes" style="color:#fff">Farbcode-Generator</a>.</small></div>
+  </form>
+  <div class="vht-card vht-out">
+    <span class="vhp-eyebrow">Vorschau</span>
+    <div class="vht-prev" id="m-prev" aria-live="polite" style="margin:8px 0 14px"></div>
+    <label for="m-out" class="vht-note" style="display:block;margin:6px 0">Zeile für die server.properties</label>
+    <textarea id="m-out" readonly="" rows="4" style="min-height:96px"></textarea>
+    <div class="vht-actions"><button type="button" class="vhp-btn vhp-btn--primary vht-btn" data-copy="">Kopieren</button></div>
+    <p class="vht-note" id="m-status" role="status" aria-live="polite" style="margin:10px 0 0"></p>
+    <p class="vht-note" style="margin:10px 0 0">Die Vorschau ist eine Näherung. Schrift und Hintergrund der Serverliste sehen im Spiel anders aus; schwarzer Text ist auf dunklem Grund schwer lesbar. Der Zauber-Effekt (&amp;k) bewegt sich im Spiel.</p>
+  </div>
+</div>
+<footer>
+<p>Dieses Tool gibt es auch mit Anleitung und Beispielen auf <a href="https://ventrohosting.com/tools/minecraft-motd-generator">Minecraft MOTD-Generator</a> von <a href="https://ventrohosting.com/">VentroHosting</a>, dazu weitere <a href="https://ventrohosting.com/tools">kostenlose Minecraft-Tools</a>.</p>
+<p>Open Source (MIT) · <a href="https://github.com/dannytheone/minecraft-motd-generator">Quellcode auf GitHub</a> · Läuft komplett im Browser, keine Daten werden gesendet.</p>
+</footer>
+</main>
+<script src="tools.js"></script>
+</body>
+</html>
