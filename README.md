@@ -2,7 +2,7 @@
 
 Gestalte die MOTD deines Minecraft-Servers mit Farben, Fett und Kursiv, sieh die Vorschau und kopiere die fertige Zeile für die server.properties.
 
-**Online nutzen:** [Minecraft MOTD-Generator](https://ventrohosting.com/tools/minecraft-motd-generator) · Demo: https://dannytheone.github.io/minecraft-motd-generator/
+**Online nutzen:** [Minecraft MOTD-Generator](https://ventrohosting.com/tools/minecraft-motd-generator) · Demo: https://ventrohosting.github.io/minecraft-motd-generator/
 
 ## Funktionen
 
